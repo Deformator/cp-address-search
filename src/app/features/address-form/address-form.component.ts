@@ -28,7 +28,6 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   selectedAddress: AddressModel | null = null;
 
   constructor(
-    private canadaPostService: CanadaPostService,
     public cpStoreService: CanadaPostStoreService
   ) {}
 
