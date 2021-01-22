@@ -1,0 +1,1 @@
+export const CANADA_POST_API_KEY = 'TR28-MH11-UD79-BR91';
