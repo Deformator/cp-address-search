@@ -1,46 +1,49 @@
-<form [formGroup]="addressSearch" class="example-form-field">
-  <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Address Lookup</mat-label>
-    <input
-      type="text"
-      matInput
-      formControlName="search"
-      placeholder="Start typing your address..."
-    />
-  </mat-form-field>
+<div class="form-container">
+  <h2>Search address</h2>
+  <form [formGroup]="addressSearch" class="example-form">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Address Lookup</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="search"
+        placeholder="Start typing your address..."
+      />
+    </mat-form-field>
+    <mat-action-list *ngIf="addresses.length > 0" class="example-list">
+      <mat-list-item
+        *ngFor="let address of addresses"
+        (click)="populateAddress(address.id)"
+      >
+        {{ address.description }}
+      </mat-list-item>
+    </mat-action-list>
+    <mat-form-field class="full-width">
+      <mat-label>Company</mat-label>
+      <input type="text" matInput formControlName="company" placeholder="" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Address Line 1</mat-label>
+      <input type="text" matInput formControlName="address1" placeholder="" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Address Line 2</mat-label>
+      <input type="text" matInput formControlName="address2" placeholder="" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>City</mat-label>
+      <input type="text" matInput formControlName="city" placeholder="" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Province</mat-label>
+      <input type="text" matInput formControlName="province" placeholder="" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Postal Code</mat-label>
+      <input type="text" matInput formControlName="postalCode" placeholder="" />
+    </mat-form-field>
+  </form>
   <mat-spinner
-    *ngIf="(cpStoreService.addressStore | async)?.loading"
-  ></mat-spinner>
-  <mat-action-list *ngIf="addresses">
-    <mat-list-item
-      *ngFor="let address of addresses"
-      (click)="populateAddress(address.id)"
-    >
-      {{ address.description }}
-    </mat-list-item>
-  </mat-action-list>
-  <mat-form-field class="example-full-width">
-    <mat-label>Company</mat-label>
-    <input type="text" matInput formControlName="company" placeholder="" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Address Line 1</mat-label>
-    <input type="text" matInput formControlName="address1" placeholder="" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Address Line 2</mat-label>
-    <input type="text" matInput formControlName="address2" placeholder="" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>City</mat-label>
-    <input type="text" matInput formControlName="city" placeholder="" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Province</mat-label>
-    <input type="text" matInput formControlName="province" placeholder="" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Postal Code</mat-label>
-    <input type="text" matInput formControlName="postalCode" placeholder="" />
-  </mat-form-field>
-</form>
+  *ngIf="(cpStoreService.addressStore | async)?.loading"
+></mat-spinner>
+</div>
