@@ -23,8 +23,10 @@
     "@angular/router": "~11.0.9",
     "@ngrx/effects": "^10.1.2",
     "@ngrx/store": "^10.1.2",
+    "@ngrx/store-devtools": "^12.0.0",
     "jest": "^26.6.3",
     "jest-preset-angular": "^8.3.2",
+    "redux-devtools-extension": "^2.13.9",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -53,6 +55,8 @@
     "roots": [
       "src"
     ],
-    "setupFilesAfterEnv": ["<rootDir>/setupJest.ts"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupJest.ts"
+    ]
   }
 }
