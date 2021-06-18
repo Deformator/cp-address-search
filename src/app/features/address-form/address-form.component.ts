@@ -27,9 +27,7 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   addresses: AddressResponseModel[] = [];
   selectedAddress: AddressModel | null = null;
 
-  constructor(
-    public cpStoreService: CanadaPostStoreService
-  ) {}
+  constructor(public cpStoreService: CanadaPostStoreService) {}
 
   ngOnInit(): void {
     this.initWatchers();
@@ -38,7 +36,7 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   initWatchers() {
     this.addressSearch
       .get('search')!
-      .valueChanges.pipe(debounceTime(500))
+      .valueChanges.pipe(takeUntil(this.componentDestroyed$), debounceTime(500))
       .subscribe((searchedItem: string) => {
         this.cpStoreService.searchAddresses(searchedItem);
       });

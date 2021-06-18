@@ -25,7 +25,6 @@ export function reducer(
         ...state,
         error: null,
         loading: true,
-        addresses: [],
       };
     }
     case AddressActions.SEARCH_ADDRESSES_SUCCESS: {
